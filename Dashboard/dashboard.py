@@ -12,6 +12,8 @@ import seaborn as sns
 
 # Title
 st.set_page_config(page_title="Air Quality Analysis from Nongzhanguan in 2013-2017")
+# Hide PyplotGlobalUseWarning
+st.set_option('deprecation.showPyplotGlobalUse', False)
 # Load dataset
 data = pd.read_csv('datanongzhanguan.csv')
 # Title of the dashboard
