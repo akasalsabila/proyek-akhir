@@ -22,10 +22,10 @@ st.title('Air Quality  Nongzhanguan Station Dashboard')
 st.write('This dashboard focuses on air quality and the variables that affect it as well as the correlation between them.')
 # Displaying data statistics
 st.subheader('Data Overview for Selected Period')
-st.write(data_filtered.describe())
-fig, axes = plt.subplots(nrows=1, ncols=len(data_filtered.columns), figsize=(15, 4))
-for i, column in enumerate(data_filtered.columns):
-    axes[i].hist(data_filtered[column])
+st.write(data.describe())
+fig, axes = plt.subplots(nrows=1, ncols=len(data.columns), figsize=(15, 4))
+for i, column in enumerate(data.columns):
+    axes[i].hist(data[column])
     axes[i].set_title(column)
 st.pyplot(fig)
 
