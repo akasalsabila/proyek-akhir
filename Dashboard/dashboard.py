@@ -20,11 +20,6 @@ data = pd.read_csv('datanongzhanguan.csv')
 st.title('Air Quality  Nongzhanguan Station Dashboard')
 # Description
 st.write('This dashboard focuses on air quality and the variables that affect it as well as the correlation between them.')
-
-selected_year = st.sidebar.selectbox('Select Year', list(data['year'].unique()))
-selected_month = st.sidebar.selectbox('Select Month', list(data['month'].unique()))
-data_filtered = data[(data['year'] == selected_year) & (data['month'] == selected_month)].copy()
-
 # Displaying data statistics
 st.subheader('Data Overview for Selected Period')
 st.write(data_filtered.describe())
@@ -68,14 +63,3 @@ sns.scatterplot(x='PM2.5', y='PM10', data=data)
 plt.xlabel('PM2.5')
 plt.ylabel('PM10')
 st.pyplot(fig)
-
-# Wind Direction Analysis
-st.subheader('Wind Direction Analysis')
-wind_data = data_filtered.groupby('wd')['PM2.5'].mean()
-fig = plt.figure(figsize=(8, 6))
-ax = fig.add_subplot(111, polar=True)
-theta = np.linspace(0, 2 * np.pi, len(wind_data))
-bars = ax.bar(theta, wind_data.values, align='center', alpha=0.5)
-plt.title('PM2.5 Levels by Wind Direction')
-st.pyplot(fig)
-
