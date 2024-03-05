@@ -57,7 +57,7 @@ year_avg_pollutants.plot(kind='line', marker='o')
 plt.xlabel('Year')
 plt.ylabel('Average Concentration')
 plt.legend(title='Pollutants', loc='upper right')
-st.pyplot(fig)
+st.pyplot()
 
 # Scatter Plot of PM2.5 vs PM10
 st.subheader('Scatter Plot of PM2.5 vs PM10')
